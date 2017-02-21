@@ -2,7 +2,7 @@ from django.apps import apps
 from django.core.cache import cache
 from django.conf import settings
 
-from .models import MyBaseModel
+from .models import FormDocument
 
 _class_exclude_list = []
 
@@ -28,10 +28,9 @@ def get_custom_apps():
 def get_class_list():
     class_list = cache.get('class_list')
     if not class_list:
-        class_list = [f for app in get_custom_apps() for f in app.get_models() if issubclass(f,MyBaseModel) and f not in _class_exclude_list]
+        class_list = [f for app in get_custom_apps() for f in app.get_models() if issubclass(f,FormDocument) and f not in _class_exclude_list]
         cache.set('class_list',class_list,None)
     print("class_list:",class_list)
-    import pdb;pdb.set_trace()
     return class_list
 
 def class_for_name(module_name, class_name):

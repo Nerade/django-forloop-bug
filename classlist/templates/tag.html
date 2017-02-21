@@ -1,0 +1,8 @@
+{% load filters %}
+
+{{ available_class_list|console }}
+{{ available_class_list|console:0 }}
+{% for available_class in available_class_list %}
+	{{ forloop.counter }}
+	{{ available_class|console }}
+{% endfor %}
