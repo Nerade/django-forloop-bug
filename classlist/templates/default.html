@@ -1,16 +1,18 @@
-{% load tags %}
 {% load filters %}
 <h3>Direct Context</h3>
 <div>
+	Before loop
+	<pre>
 {{ object_list|console }}
-{{ object_list|console:0 }}
+{{ object_list|console:"0" }}
+	</pre>
 {% for obj in object_list %}
-	{{obj|console}}
 	{{obj.get_doc_type}}
+	{{obj|console}}
+	{{ object_list|console:"0" }}
 {% endfor %}
 </div>
 
 <h3>Inclusion tag</h3>
 <div>
-	{% create_class_list %}
 </div>

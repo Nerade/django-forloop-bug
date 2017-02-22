@@ -5,6 +5,7 @@ register = template.Library()
 
 @register.filter(name='console')
 def print_console(item,arg=None):
+    import pdb;pdb.set_trace()
     if arg:
         item = item[int(arg)]
     print("Type:",type(item))

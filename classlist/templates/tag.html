@@ -1,8 +1,10 @@
 {% load filters %}
-
+Before loop
+<pre>
 {{ available_class_list|console }}
-{{ available_class_list|console:0 }}
+{{ available_class_list|console:"0" }}
+</pre>
 {% for available_class in available_class_list %}
 	{{ forloop.counter }}
-	{{ available_class|console }}
+	{{ available_class.get_doc_type }}
 {% endfor %}
