@@ -1,3 +1,4 @@
+{% load filters %}
 {% for obj in object_list %}
-	{{obj.some_method}}
+	{{obj|console}}
 {% endfor %}

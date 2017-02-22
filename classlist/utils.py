@@ -31,7 +31,6 @@ def get_class_list():
         class_list = [f for app in get_custom_apps() for f in app.get_models() if issubclass(f,MyBaseModel) and f not in _class_exclude_list]
         cache.set('class_list',class_list,None)
     print("class_list:",class_list)
-    import pdb;pdb.set_trace()
     return class_list
 
 def class_for_name(module_name, class_name):

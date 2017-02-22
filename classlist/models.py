@@ -8,16 +8,19 @@ class MyBaseModel(models.Model):
 
     a_field = models.CharField(max_length=2)
 
-    def some_method(self):
-        print("some method called @ %s" % str(self))
+    @classmethod
+    def some_method(cls):
+        print("some method called")
 
-    def __str__(self):
+    @classmethod
+    def __str__(cls):
         print("Output")
-        return self.__class__.__name__
+        return cls.__name__
 
 class A(MyBaseModel):
     name = models.CharField(max_length=255)
     def __init__(self,*args,**kwargs):
+        import pdb;pdb.set_trace()
         super().__init__(*args,**kwargs)
         print("Constructor")
 
